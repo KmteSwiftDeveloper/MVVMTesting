@@ -13,9 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func tapSave(_ sender: UIButton) {
-        studentListVM.createStudent(name:txtName.text ?? "")
-        tableView.reloadData()
-        txtName.text = ""
+        if txtName.text != ""{
+            studentListVM.createStudent(name:txtName.text ?? "")
+            tableView.reloadData()
+            txtName.text = ""
+        }
     }
     
     var studentListVM = StudentListVM()
